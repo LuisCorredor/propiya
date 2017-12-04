@@ -29,11 +29,16 @@ class Acceso extends CI_Controller {
             if($query->num_rows() == 1)
                 {
                 
+                // INTRODUCIR SENTENCIAS SQL DE TABLA DATOS_PERSONALES
+                // ........
+                $this->db->where("email", $email);
+                $query   = $this->db->get('datos_personales');
+                
                 $array = array(
                     "logged" => true,
                     "id"     => $id,
                     "user"   => $email,
-                    "nombre" => $nombre,
+                    "nombre" => $query->result()["nombre"],
                     "pack"   => "free"
                 );
                     $this->session->set_userdata($array);
@@ -41,17 +46,6 @@ class Acceso extends CI_Controller {
                 } else {
                     redirect('acceso');
                 }
-         
-		/*$array = array(
-			"logged" => true,
-			"id"     => 1,
-			"user"   => "ignazvolkov",
-			"nombre" => "Ignaz Volkov",
-			"pack"   => "free"
-		);
-		
-		$this->session->set_userdata($array);
-		redirect('perfil');*/
 	}
     
   
