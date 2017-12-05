@@ -32,6 +32,9 @@ class Acceso extends CI_Controller {
                 $this->db->where("email", $email);
                 $query = $this->db->get('datos_personales');
                 
+                //$sql = "SELECT * FROM datos_personales WHERE email = '.$email.'";
+                //$this->db->query($sql, array(); https://www.codeigniter.com/userguide3/database/queries.html
+                
                 $array = array(
                     "logged" => true,
                     "id"     => $query->result()["id"],
