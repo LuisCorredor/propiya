@@ -17,8 +17,8 @@ class Acceso extends CI_Controller {
 	}
 
 	public function iniciar()
-	{
-		// .... Iniciar Sesión .... [MODIFICAR]
+    {
+	
         $email = $this->input->post("email");
         $pass = $this->input->post("pass");
         
@@ -29,10 +29,8 @@ class Acceso extends CI_Controller {
             if($query->num_rows() == 1)
                 {
                 
-                // INTRODUCIR SENTENCIAS SQL DE TABLA DATOS_PERSONALES
-                // ........
                 $this->db->where("email", $email);
-                $query   = $this->db->get('datos_personales');
+                $querys = $this->db->get('datos_personales');
                 
                 $array = array(
                     "logged" => true,
@@ -48,9 +46,6 @@ class Acceso extends CI_Controller {
                 }
 	}
     
-  
- 
-
 	public function cerrar()
 	{
 		/*

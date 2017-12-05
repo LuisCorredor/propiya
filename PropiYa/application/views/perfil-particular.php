@@ -85,26 +85,25 @@
 
 		<div class="col-md-8">
 			<div class="row">
-
+                 
 
 				<div class="col-md-8 my-profile">
 					<h4 class="margin-top-0 margin-bottom-30">Mi Cuenta</h4>
 
 					<label>Nombre y Apellido</label>
-					<input value="Juan Agust&iacute;n Greve" type="text">
+					<input value="<?= $this->session->userdata("nombre") ?>" type="text">
 
-					<label>Tel&eacute;fonos de Contacto</label>
-					<input value="Agencia de Rafaela" type="text">
+					<label>Teléfonos de Contacto</label>
+					<input value="<?= $this->session->userdata("agencia") ?>" type="text">
 
-					<label>Tel&eacute;fonos de Contacto</label>
-					<input value="(123) 123-456" type="text">
+					<label>Teléfonos de Contacto</label>
+					<input value="<?= $this->session->userdata("telefono") ?>" type="text">
 
-					<label>Correo Electr&oacute;nico</label>
-					<input value="jennie@example.com" type="text">
-
-
-					<h4 class="margin-top-50 margin-bottom-25">Acerca de M&iacute;</h4>
-					<textarea name="about" id="about" cols="30" rows="10">Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper</textarea>
+					<label>Correo Electrónico</label>
+					<input value="<?= $this->session->userdata("user") ?>" type="text">
+                    
+					<h4 class="margin-top-50 margin-bottom-25">Acerca de Mí</h4>
+					<textarea name="about" id="about" cols="30" rows="10"><?= $this->session->userdata("acerca") ?></textarea>
 				
 
 					<button class="button margin-top-20 margin-bottom-20">Guardar Cambios</button>
