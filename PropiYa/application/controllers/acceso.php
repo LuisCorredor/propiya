@@ -21,22 +21,24 @@ class Acceso extends CI_Controller {
 	
         $email = $this->input->post("email");
         $pass = $this->input->post("pass");
+        $pass = sha1($pass);
         
         $this->db->where('email',$email);
-        $this->db->where('pass',sha1($pass));
         
         $query = $this->db->get('usuarios');
             if($query->num_rows() == 1)
                 {
                 
                 $this->db->where("email", $email);
-                $querys = $this->db->get('datos_personales');
+                $query = $this->db->get('datos_personales');
                 
                 $array = array(
                     "logged" => true,
-                    "id"     => $id,
+                    "id"     => $query->result()["id"],
                     "user"   => $email,
                     "nombre" => $query->result()["nombre"],
+                    "telefono" => $query->result()["telefono"],
+                    "acerca" => $query->result()["acerca"],
                     "pack"   => "free"
                 );
                     $this->session->set_userdata($array);

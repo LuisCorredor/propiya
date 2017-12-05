@@ -96,9 +96,6 @@
 					<label>Teléfonos de Contacto</label>
 					<input value="<?= $this->session->userdata("agencia") ?>" type="text">
 
-					<label>Teléfonos de Contacto</label>
-					<input value="<?= $this->session->userdata("telefono") ?>" type="text">
-
 					<label>Correo Electrónico</label>
 					<input value="<?= $this->session->userdata("user") ?>" type="text">
                     
